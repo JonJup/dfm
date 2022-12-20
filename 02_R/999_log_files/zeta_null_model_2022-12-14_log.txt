@@ -1,0 +1,19 @@
+[1] "~/001_Uni/001_projects/dfm/02_R/003_analyses/zeta_null_model.R"
+R version 4.2.2 (2022-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 22000)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=German_Germany.utf8  LC_CTYPE=German_Germany.utf8    LC_MONETARY=German_Germany.utf8 LC_NUMERIC=C                   
+[5] LC_TIME=German_Germany.utf8    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] zetadiv_1.2.1     scam_1.2-13       mgcv_1.8-41       nlme_3.1-160      rstudioapi_0.14   data.table_1.14.6 pacman_0.5.1     
+
+loaded via a namespace (and not attached):
+[1] compiler_4.2.2  Matrix_1.5-3    tools_4.2.2     splines_4.2.2   grid_4.2.2      lattice_0.20-45

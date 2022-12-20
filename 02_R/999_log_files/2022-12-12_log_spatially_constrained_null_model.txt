@@ -1,0 +1,30 @@
+[1] "2022-12-12"
+[1] "~/Uni/001_projects/dfm/R/create_spatially_constrained_null_model.R"
+R version 4.2.2 (2022-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 22000)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=German_Germany.utf8  LC_CTYPE=German_Germany.utf8    LC_MONETARY=German_Germany.utf8
+[4] LC_NUMERIC=C                    LC_TIME=German_Germany.utf8    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] mapview_2.11.0    magrittr_2.0.3    sf_1.0-9          rstudioapi_0.14   tidyr_1.2.1      
+[6] dplyr_1.0.10      data.table_1.14.6 conflicted_1.1.0  pacman_0.5.1     
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.9         pillar_1.8.1       compiler_4.2.2     base64enc_0.1-3    class_7.3-20      
+ [6] tools_4.2.2        digest_0.6.30      satellite_1.0.4    memoise_2.0.1      lifecycle_1.0.3   
+[11] tibble_3.1.8       lattice_0.20-45    png_0.1-8          pkgconfig_2.0.3    rlang_1.0.6       
+[16] DBI_1.1.3          cli_3.4.1          crosstalk_1.2.0    fastmap_1.1.0      terra_1.6-47      
+[21] e1071_1.7-12       raster_3.6-11      htmlwidgets_1.5.4  generics_0.1.3     vctrs_0.5.1       
+[26] webshot_0.5.4      stats4_4.2.2       leaflet_2.1.1      classInt_0.4-8     grid_4.2.2        
+[31] tidyselect_1.2.0   glue_1.6.2         R6_2.5.1           fansi_1.0.3        sp_1.5-1          
+[36] purrr_0.3.5        scales_1.2.1       codetools_0.2-18   htmltools_0.5.4    units_0.8-0       
+[41] assertthat_0.2.1   colorspace_2.0-3   utf8_1.2.2         KernSmooth_2.23-20 proxy_0.4-27      
+[46] munsell_0.5.0      leafem_0.2.0       cachem_1.0.6      
