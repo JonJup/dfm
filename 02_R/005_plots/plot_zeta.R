@@ -32,21 +32,23 @@ plot_fun <- function(res){
         
         vlinevar <- 
                 data[typology == "null_model_type" & taxonomic_resolution == res] %>% 
-                unique(by = c("typology", "taxonomic_resolution", "taxon","type"))
-        vlinevar[, auc := median(auc), by = c("typology", "taxon", "taxonomic_resolution")]
+                unique(by = c("taxon", "type"))
+        
+        vlinevar <- vlinevar[,  auc:=median(auc), by = "taxon"]
         vlinevar %<>% unique(by =  c("typology", "taxon", "taxonomic_resolution"))
         out_plot <- 
                 data |>  
                 filter(typology != "null_model_type", taxonomic_resolution == res) |> 
                 unique(by = c("taxonomic_resolution", "taxon","typology", "type")) |> 
                 ggplot(aes(y=auc, x=typology)) + 
-                geom_boxplot(aes(fill = typology), alpha = .8, size = .8) +
-                geom_hline(aes(yintercept = auc), data = vlinevar, lty = "dashed", size = 1) + 
+                geom_violin(aes(fill = typology), alpha = .8, size = .8, draw_quantiles = 0.5) +
+                geom_hline(aes(yintercept = auc), data = vlinevar, lty = "dashed", linewidth = 1) + 
                 xlab(NULL) + 
                 ylab("Area Under Curve") + 
                 facet_grid(.~taxon) + 
                 scale_color_manual(values = pal, guide = "none") +
                 scale_fill_manual(values = pal) + 
+                ylim(0,3) + 
                 theme(panel.background = element_rect(fill = "white"),
                       panel.grid.major.x = element_line(colour = "grey89"),
                       axis.ticks = element_blank(),
@@ -74,6 +76,7 @@ diat$taxon <- "diatom"
 maph$taxon <- "macrophyte"
 
 data <- rbindlist(list(fish, diat, maph, null))
+#data <- unique(data, by = c("typology", "taxon", "taxonomic_resolution"))
 rm(fish, diat, maph, null)
 # single curves ---------------------------------------------------------------------
 
@@ -112,7 +115,7 @@ plot_or <- plot_fun(4)
 
 # save to file ----------------------------------------------------------------------
 ggsave(plot = plot_sp, 
-       filename = "04_fig/002_results/005_zeta/221212_zeta_species.png")
+       filename = "04_fig/002_results/005_zeta/221220_zeta_species.png")
 
 
 

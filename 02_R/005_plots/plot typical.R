@@ -83,7 +83,39 @@ arrange(res.dia, jaccard_similarity)
 plot_fun("species"); ggsave(filename = paste0("04_fig/002_results/004_typical/", Sys.Date(),"_typical_boxplot_species.tiff"))
 plot_fun("genus");   ggsave(filename = paste0("04_fig/002_results/004_typical/", Sys.Date(),"_typical_boxplot_genus.tiff"))
 plot_fun("family");  ggsave(filename = paste0("04_fig/002_results/004_typical/", Sys.Date(),"_typical_boxplot_family.tiff"))
-#
+
+
+# compare taxonomic resolutions -----------------------------------------------------
+data |> 
+        filter(taxon == "diatom") |> 
+        filter(!str_detect(typology_system, "null")) |> 
+        mutate(taxonomic_level = factor(taxonomic_level, 
+                                        level = c("species", "genus", "family", "order"))) |> 
+        ggplot(aes(x = taxonomic_level, y=jaccard_similarity)) + 
+        stat_summary() +
+        facet_wrap(~typology_system)
+data |> 
+        filter(taxon == "macrophyte") |> 
+        filter(!str_detect(typology_system, "null")) |> 
+        mutate(taxonomic_level = factor(taxonomic_level, 
+                                        level = c("species", "genus", "family", "order"))) |> 
+        ggplot(aes(x = taxonomic_level, y=jaccard_similarity)) + 
+        stat_summary() +
+        facet_wrap(~typology_system)
+data |> 
+        filter(taxon == "fish") |> 
+        filter(!str_detect(typology_system, "null")) |> 
+        mutate(taxonomic_level = factor(taxonomic_level, 
+                                        level = c("species", "genus", "family", "order"))) |> 
+        ggplot(aes(x = taxonomic_level, y=jaccard_similarity)) + 
+        stat_summary() +
+        facet_wrap(~typology_system)
+
+data[taxon == "diatom" & taxonomic_level == "species" & !str_detect(typology_system, "null"), mean(jaccard_similarity)]
+data[taxon == "macrophyte" & taxonomic_level == "species" & !str_detect(typology_system, "null"), mean(jaccard_similarity)]
+data[taxon == "fish" & taxonomic_level == "species" & !str_detect(typology_system, "null"), mean(jaccard_similarity)]
+
+data[taxonomic_level == "species", mean(jaccard_similarity), by = typology_system]
 
 
 # NMDS plot  ------------------------------------------------------------------------

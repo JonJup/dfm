@@ -2,6 +2,16 @@
 .Rhistory
 .Rapp.history
 
+
+01_data/
+03_doc/
+04_fig/
+05_presentation/
+autoren_dfm.xlsx
+whoIsMissing.txt
+workflow/
+
+
 # Session Data files
 .RData
 
